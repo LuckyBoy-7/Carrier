@@ -30,29 +30,29 @@ namespace Lucky.Framework
             if (reset || Left.Keys.Count <= 0)
             {
                 Left.Keys.Clear();
-                // Left.Add(KeyCode.LeftArrow);
-                Left.Add(KeyCode.J);
+                Left.Add(KeyCode.LeftArrow);
+                // Left.Add(KeyCode.J);
             }
 
             if (reset || Right.Keys.Count <= 0)
             {
                 Right.Keys.Clear();
-                // Right.Add(KeyCode.RightArrow);
-                Right.Add(KeyCode.L);
+                Right.Add(KeyCode.RightArrow);
+                // Right.Add(KeyCode.L);
             }
 
             if (reset || Down.Keys.Count <= 0)
             {
                 Down.Keys.Clear();
-                // Down.Add(KeyCode.DownArrow);
-                Down.Add(KeyCode.K);
+                Down.Add(KeyCode.DownArrow);
+                // Down.Add(KeyCode.K);
             }
 
             if (reset || Up.Keys.Count <= 0)
             {
                 Up.Keys.Clear();
-                // Up.Add(KeyCode.UpArrow);
-                Up.Add(KeyCode.I);
+                Up.Add(KeyCode.UpArrow);
+                // Up.Add(KeyCode.I);
             }
 
             if (reset || Jump.Keys.Count <= 0)

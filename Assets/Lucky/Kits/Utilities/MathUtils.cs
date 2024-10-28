@@ -170,7 +170,8 @@ namespace Lucky.Kits.Utilities
         /// </summary>
         public static float SignedRadians(Vector2 from, Vector2 to)
         {
-            return Radians(from, to) * Sign((float)(from.x * (double)to.y - from.y * (double)to.x));
+            // 不用sign2的话对于成180度角的from和to会返回0
+            return Radians(from, to) * Sign2((float)(from.x * (double)to.y - from.y * (double)to.x));
             // 这里的from和to的顺序反过来应该是左手坐标系的问题, 所以也可以写成
             // return Vector2.Angle(from, to) * -Sign((float) (from.y * (double) to.x - from.x * (double) to.y));
         }

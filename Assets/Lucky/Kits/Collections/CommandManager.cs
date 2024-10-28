@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Lucky.Framework;
 using Lucky.Kits.Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -10,16 +11,22 @@ namespace Lucky.Kits.Collections
 
     public interface ICommand
     {
-        public void Do();
-        public void Undo();
+        public ICommand Do();
+        public ICommand Undo();
     }
 
-    public class CommandManager : Singleton<CommandManager>
+    public class CommandManager : ManagedBehaviour
     {
+        public static CommandManager Instance;
 
         [ShowInInspector] private List<List<ICommand>> commands = new();
         [SerializeField] private int idx = -1; // 最后一个可撤销的操作序列的索引
 
+
+        protected void Awake()
+        {
+            Instance = this;
+        }
 
         public void CreateNewCommandSequence() // 表示一个操作下的首个command
         {

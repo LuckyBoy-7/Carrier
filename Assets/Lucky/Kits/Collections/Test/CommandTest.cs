@@ -13,14 +13,16 @@ namespace Lucky.Kits.Collections.Test
         {
             this.parent = parent;
         }
-        public void Do()
+        public ICommand Do()
         {
             parent.Lst.Add(1);
+            return this;
         }
 
-        public void Undo()
+        public ICommand Undo()
         {
             parent.Lst.Pop();
+            return this;
         }
     }
 
