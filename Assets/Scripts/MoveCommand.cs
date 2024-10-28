@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Lucky.Kits.Collections;
 using UnityEngine;
 
@@ -6,22 +7,26 @@ namespace DefaultNamespace
     public class MoveCommand : ICommand
     {
         private Transform target;
-        private Vector2 dir;
+        private Vector2 origPos;
+        private Vector2 targetPos;
 
         public MoveCommand(Transform target, Vector2 dir)
         {
-            this.dir = dir;
+            origPos = target.position;
+            targetPos = origPos + dir;
             this.target = target;
         }
+
         public ICommand Do()
         {
-            target.position += (Vector3)dir;
+            Player.instance.canOperate = false;
+            target.DOMove(targetPos, 0.12f).onComplete += () => Player.instance.canOperate = true;
             return this;
         }
 
         public ICommand Undo()
         {
-            target.position -= (Vector3)dir;
+            target.position = origPos;
             return this;
         }
     }

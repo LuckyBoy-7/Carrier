@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,18 +12,30 @@ using Input = Lucky.Kits.Inputs.Input;
 
 public class Player : ManagedBehaviour
 {
+    public static Player instance;
     public GameObject idleHand;
     public GameObject holdHand;
-    public Vector2 lastDir = Vector2.right;
+    public Vector2 CurrentDir => MathUtils.AngleToVector(transform.eulerAngles.z, 1);
+    public bool canOperate = true;
+    public bool dontChangeHand;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     protected override void ManagedFixedUpdate()
     {
         base.ManagedFixedUpdate();
-
-        if (Input.GetKey(KeyCode.Space) && HasRock(lastDir)) // 按空格就是搬运
+        if (!canOperate)
+            return;
+        if (Input.GetKey(KeyCode.Space) && HasRock(CurrentDir)) // 按空格就是搬运
         {
-            idleHand.gameObject.SetActive(false);
-            holdHand.gameObject.SetActive(true);
+            if (!dontChangeHand)
+            {
+                idleHand.gameObject.SetActive(false);
+                holdHand.gameObject.SetActive(true);
+            }
 
             Vector2 dir = Vector2.zero;
             if (Input.Up.Pressed)
@@ -36,22 +49,24 @@ public class Player : ManagedBehaviour
             else
                 return;
             // 只能朝相邻方向搬运
-            if (-dir == lastDir)
+            if (-dir == CurrentDir)
                 return;
             // 就是搬运转弯时的那个对角位置
-            Vector2 cornerDir = dir + lastDir;
+            Vector2 cornerDir = dir + CurrentDir;
             // 没路或者挡着就不行
             if (!HasPath(cornerDir) || HasRock(cornerDir) || !HasPath(dir) || HasRock(dir))
                 return;
 
             CommandManager.Instance.CreateNewCommandSequence();
-            CommandManager.Instance.AddCommand(new MoveCommand(GetRock(lastDir), dir - lastDir).Do());
-            CommandManager.Instance.AddCommand(new ChangePlayerFacingDirCommand(this, dir).Do());
+            CommandManager.Instance.AddCommand(new CarryCommand(this, dir).Do());
         }
         else // 不按空格就是移动
         {
-            idleHand.gameObject.SetActive(true);
-            holdHand.gameObject.SetActive(false);
+            if (!dontChangeHand)
+            {
+                idleHand.gameObject.SetActive(true);
+                holdHand.gameObject.SetActive(false);
+            }
 
             Vector2 dir = Vector2.zero;
             if (Input.Up.Pressed)
@@ -79,12 +94,6 @@ public class Player : ManagedBehaviour
             CommandManager.Instance.AddCommand(new MoveCommand(transform, dir).Do());
             CommandManager.Instance.AddCommand(new ChangePlayerFacingDirCommand(this, dir).Do());
         }
-    }
-
-    public override void Render()
-    {
-        base.Render();
-        transform.eulerAngles = Vector3.zero.WithZ(MathUtils.SignedAngle(Vector2.right, lastDir));
     }
 
     public bool HasPath(Vector2 dir) => Physics2D.OverlapPointAll(transform.position + (Vector3)dir).Any(box => box.gameObject.CompareTag("Path"));
