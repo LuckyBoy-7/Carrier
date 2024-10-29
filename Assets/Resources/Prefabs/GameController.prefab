@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2931899533723458464}
   - component: {fileID: 3994843336010125178}
   m_Layer: 0
-  m_Name: WinChecker
+  m_Name: GameController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

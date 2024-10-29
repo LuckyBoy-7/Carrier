@@ -39,16 +39,16 @@ namespace Lucky.Kits.Collections
 
         public void AddCommand(ICommand command) => commands[idx].Add(command);
 
-        protected override void ManagedFixedUpdate()
-        {
-            base.ManagedFixedUpdate();
-            if (Input.GetKeyDown(KeyCode.Z))
-                Undo();
-            else if (Input.GetKeyDown(KeyCode.X))
-                Do(); // 返回撤销
-        }
+        // protected override void ManagedFixedUpdate()
+        // {
+        //     base.ManagedFixedUpdate();
+        //     if (Input.GetKeyDown(KeyCode.Z))
+        //         Undo();
+        //     else if (Input.GetKeyDown(KeyCode.X))
+        //         Do(); // 返回撤销
+        // }
 
-        private void Do()
+        public void Do()
         {
             Debug.Log("Do");
             if (idx == commands.Count - 1)
@@ -60,7 +60,7 @@ namespace Lucky.Kits.Collections
             commands[++idx].ForEach(command => command.Do());
         }
 
-        private void Undo()
+        public void Undo()
         {
             Debug.Log("Undo");
             if (idx == -1)

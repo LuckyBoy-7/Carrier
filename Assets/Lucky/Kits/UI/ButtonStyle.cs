@@ -13,7 +13,8 @@ using Random = UnityEngine.Random;
 
 namespace Lucky.Kits.UI
 {
-    public class ButtonStyle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+    [RequireComponent(typeof(Button))]
+    public class ButtonStyle : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler
     {
         [SerializeField] private List<Image> frontImages, bgImages;
         [SerializeField] private List<TMP_Text> texts;
@@ -36,6 +37,7 @@ namespace Lucky.Kits.UI
         public Action onClick;
         public Action onEnter;
         public Action onExit;
+        private bool isButtonKeepPressing;
 
         private void Start()
         {
@@ -98,6 +100,11 @@ namespace Lucky.Kits.UI
         public void OnPointerClick(PointerEventData eventData)
         {
             onClick?.Invoke();
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            isButtonKeepPressing = true;
         }
     }
 }
