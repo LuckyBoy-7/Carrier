@@ -49,7 +49,7 @@ public class Player : ManagedBehaviour
             else
                 return;
             // 只能朝相邻方向搬运
-            if (-dir == CurrentDir)
+            if (-dir == CurrentDir || dir == CurrentDir)
                 return;
             // 就是搬运转弯时的那个对角位置
             Vector2 cornerDir = dir + CurrentDir;

@@ -25,6 +25,7 @@ public class GameController : ManagedBehaviour
     private void Start()
     {
         levelText.text = $"Level {LevelManager.Instance.currentLevel}";
+        levelText.color = LevelButtonGenerator.GetColorByLevel(LevelManager.Instance.currentLevel);
     }
 
     protected override void ManagedFixedUpdate()

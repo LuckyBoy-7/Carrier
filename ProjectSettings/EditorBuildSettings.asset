@@ -11,4 +11,64 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScenes/Level1.unity
     guid: 8968949060c51214bae24d708ea0f03b
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level2.unity
+    guid: 51eadeec153d4ca45b7aefc6af800e48
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level3.unity
+    guid: a22115e7dd5f47f48b263e0d5b6ef59a
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level4.unity
+    guid: 5168678e0a500a140b031db99dd6afe3
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level5.unity
+    guid: 26a707f8beb15f648865dd719ac041d9
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level6.unity
+    guid: a15f65242d79f1848bb2f904bcdbab7f
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level7.unity
+    guid: 40310dfaca322774a9e8760390059058
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level8.unity
+    guid: ca92c0941e858234e8d9a42bb7247e28
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level9.unity
+    guid: 136a80900947a38468af4abbc5a02220
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level10.unity
+    guid: f9712c46d66554f4f99d48c88c0b3218
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level11.unity
+    guid: c685386148e7f4641800a9194b3a374a
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level12.unity
+    guid: 51911fcd8a9fbf14c88193f1ec6dd7a1
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level13.unity
+    guid: 77ce745b46cf86a448e5c59926510a65
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level14.unity
+    guid: 04215e3b582a36f49941f13d2afba547
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level15.unity
+    guid: 86bbb62f382853c468593b3cfd9ba71a
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level16.unity
+    guid: 938a5f09e3f7dd64baefb01a890b2319
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level17.unity
+    guid: 5e9261307fcd1b348808e839ad37b531
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level18.unity
+    guid: 7896ea8bff3651a4d9c4227605c983d9
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level19.unity
+    guid: c83fd783306e2b646b0e5998957fd883
+  - enabled: 1
+    path: Assets/Scenes/GameScenes/Level20.unity
+    guid: 8c4f23cdcf0d3fd4cb4195095697fb9b
+  - enabled: 0
+    path: Assets/Scenes/End.unity
+    guid: 54673f7628ce7464cb4134b68086c374
   m_configObjects: {}

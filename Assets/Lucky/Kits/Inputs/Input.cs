@@ -21,10 +21,10 @@ namespace Lucky.Kits.Inputs
             Esc = new VirtualButton(Settings.Esc, 0.1f);
             Pause = new VirtualButton(Settings.Pause, 0.1f);
 
-            Left = new VirtualButton(Settings.Left, 0.1f);
-            Right = new VirtualButton(Settings.Right, 0.1f);
-            Up = new VirtualButton(Settings.Up, 0.1f);
-            Down = new VirtualButton(Settings.Down, 0.1f);
+            Left = new VirtualButton(Settings.Left, 0.07f);
+            Right = new VirtualButton(Settings.Right, 0.07f);
+            Up = new VirtualButton(Settings.Up, 0.07f);
+            Down = new VirtualButton(Settings.Down, 0.07f);
             Jump = new VirtualButton(Settings.Jump, 0.08f);
             Grab = new VirtualButton(Settings.Grab, 0);
             Dash = new VirtualButton(Settings.Dash, 0.08f);

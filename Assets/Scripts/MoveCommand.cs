@@ -20,7 +20,7 @@ namespace DefaultNamespace
         public ICommand Do()
         {
             Player.instance.canOperate = false;
-            target.DOMove(targetPos, 0.12f).onComplete += () => Player.instance.canOperate = true;
+            target.DOMove(targetPos, 0.1f).onComplete += () => Player.instance.canOperate = true;
             return this;
         }
 
