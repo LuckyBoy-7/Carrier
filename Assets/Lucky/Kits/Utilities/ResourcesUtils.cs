@@ -27,13 +27,13 @@ namespace Lucky.Kits.Utilities
         public static void SaveTextureToAssets(string path, string name, Texture2D texture)
         {
             // 检查文件夹
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            
-            // 写入纹理
-            File.WriteAllBytes(path + name, texture.EncodeToPNG());
-            // 刷新Asset
-            AssetDatabase.Refresh();
+            // if (!Directory.Exists(path))
+            //     Directory.CreateDirectory(path);
+            //
+            // // 写入纹理
+            // File.WriteAllBytes(path + name, texture.EncodeToPNG());
+            // // 刷新Asset
+            // AssetDatabase.Refresh();
         }
     }
 }
