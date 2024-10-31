@@ -6,7 +6,7 @@ public class Test : MonoBehaviour
 {
     public void T()
     {
-        print(123);
+        print(1234);
     }
     // Start is called before the first frame update
     void Start()
